@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Page from './page'
 import findSuggestions from '../../redux/actions/findSuggestions'
+import findResults from '../../redux/actions/findResults'
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 class IAppBar extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +19,9 @@ class IAppBar extends Component {
 
     }
     onChangeSelection(text) {
-
+        this.setState({ text });
+        this.props.findResults(text);
+        this.props.history.push('/results');
     }
     render() {
         const {
@@ -48,6 +52,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps={
     findSuggestions,
+    findResults
 };
 
 /* const mapDispatchToProps = (dispatch) => {
@@ -56,4 +61,4 @@ const mapDispatchToProps={
     };
 }; */
 
-export default connect(mapStateToProps, mapDispatchToProps)(IAppBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(IAppBar));
