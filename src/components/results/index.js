@@ -11,6 +11,7 @@ class Results extends Component {
         };
 
         this.goTo = this.goTo.bind(this);
+        
     }
 
     goTo(path) {
@@ -18,10 +19,10 @@ class Results extends Component {
     }
 
     render() {
+        
         const {
             results,
         } = this.props;
-
         return (
             <Page
                 results={results}

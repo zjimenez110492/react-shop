@@ -11,8 +11,9 @@ function Page(props) {
     const {
         goTo,
         currentItem,
+        results
     } = props;
-
+    
     return (
         <Fragment>
             <CssBaseline />
@@ -47,7 +48,8 @@ function Page(props) {
 
                     <Button
                         color="primary"
-                        onClick={() => goTo('/results')}
+                        onClick={() => {
+                            goTo('/results');}}
                     >
                         Back
                     </Button>

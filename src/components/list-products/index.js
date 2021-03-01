@@ -3,10 +3,9 @@ import Page from './page'
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import findCurrentItem from '../../redux/actions/findCurrentItem'
-class Details extends Component{
+class ListarProductos extends Component{
     constructor(props) {
         super(props);
-
         this.goTo = this.goTo.bind(this);
     }
 
@@ -22,7 +21,7 @@ class Details extends Component{
     goTo(path) {
         this.props.history.push(path);
     }
- 
+    
     render(){
         const {currentItem}=this.props;
         return (
@@ -44,5 +43,5 @@ const mapDispatchToProps={
 };
 
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(Details)
+    connect(mapStateToProps, mapDispatchToProps)(ListarProductos)
 )

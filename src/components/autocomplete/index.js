@@ -31,14 +31,12 @@ class Autocomplete extends Component {
                     <SearchIcon />
                 </div>
                 <InputBase
-                    placeholder="Buscar Producto"
+                    placeholder="Search…"
                     value={text}
                     style={{ width: '100%' }}
                     onChange={(event) => {
                         const newText = event.target.value;
-
                         onChangeText(newText);
-
                         if (!isOpen && newText) {
                             this.setState({ isOpen: true });
                         } else if (isOpen && !newText) {
@@ -51,10 +49,11 @@ class Autocomplete extends Component {
                     onFocus={() => {
                         if (text) {
                             this.setState({ isOpen: true });
+                            
                         }
                     }}
                     onKeyPress={(event) => {
-                        if (event.key === 'Enter' && text) {
+                        if (event.key === 'Enter' ) {
                             onChangeSelection(text);
                         }
                     }}

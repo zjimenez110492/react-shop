@@ -5,14 +5,16 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import store from './redux/store';
 import Results from './components/results';
 import Details from './components/details';
+import ListarProductos from './components/list-products';
 
 const Root = (
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
+            <Route path="/listarProductos" component={ListarProductos} />
                 <Route path="/results" component={Results} />
                 <Route path="/details/:itemId" component={Details} />
-                <Redirect from="/" to="/results" />
+                <Redirect from="/" to="/listarProductos" />
             </Switch>
         </BrowserRouter>
     </Provider>
